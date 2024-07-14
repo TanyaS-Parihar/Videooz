@@ -10,6 +10,7 @@ const WatchPage = () => {
   const dispatch = useDispatch();
   //NEW HOOK
   const [searchParams] = useSearchParams();
+
   const paramId = searchParams.get("v");
   // toh ye v ke bad ka return krega apne ko id
   const addMovieDetails = useSelector((store) => store.app.addMovieDetails);

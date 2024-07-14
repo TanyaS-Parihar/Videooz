@@ -97,8 +97,53 @@ const CommentsContainer = () => {
   const [commentMessage, setCommentMessage] = useState(" ");
   const dispatch = useDispatch();
   return (
-    <div className="m-5 p-2 shadow-lg">
+    <div className="m-5 p-2 shadow-lg ">
       <h1 className="text-2xl font-bold">Comments: </h1>
+      <div className="flex ">
+        <img
+          className="h-8 rounded-full"
+          src="https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black-thumbnail.png"
+        />
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            setCommentMessage(e.target.value);
+
+            dispatch(
+              addComment({
+                name: "Tanya",
+                message: commentMessage,
+              })
+            );
+            setCommentMessage(" ");
+          }}
+        >
+          <div className="flex ">
+            <input
+              value={commentMessage}
+              type="text"
+              placeholder={"   " + "Add a Comment... "}
+              className="w-[700px]  text-black  border-2 border-black pl-2 bg-slate-200 "
+              onChange={(e) => {
+                setCommentMessage(e.target.value);
+              }}
+            />
+            <button className="bg-blue-500 py-2 rounded-3xl">Submit</button>
+          </div>
+        </form>
+      </div>
+      <UserComment />
+      <CommentsList comments={commentsData} />
+    </div>
+  );
+};
+
+const ReplyCommentsContainer = () => {
+  const [commentMessage, setCommentMessage] = useState(" ");
+  const dispatch = useDispatch();
+  return (
+    <div className="m-5 p-2 shadow-lg ">
       <div className="flex bg-slate-400 ">
         <img
           className="h-8 rounded-full"
@@ -129,14 +174,12 @@ const CommentsContainer = () => {
                 setCommentMessage(e.target.value);
               }}
             />
-            <button className="bg-blue-500 py-2 rounded-3xl">Submit</button>
+            <button className="bg-blue-500 py-2 rounded-3xl">Reply</button>
           </div>
         </form>
       </div>
       <UserComment />
-      <CommentsList comments={commentsData} />
     </div>
   );
 };
-
 export default CommentsContainer;

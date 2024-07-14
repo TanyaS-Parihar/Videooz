@@ -14,7 +14,7 @@ const VideoContainer = () => {
 
   const getVideos = async () => {
     const data = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20${1}&regionCode=IN&key=AIzaSyAQEQKVZeXKZ0tSzpHlIrOhVVUOtwFGsjM`
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20${1}&regionCode=IN&key=AIzaSyAPy2lV1HoWtFaVAVcKGpUzaaaFkSSw-qQ`
     );
     const json = await data.json();
     console.log("json", json);
@@ -24,7 +24,7 @@ const VideoContainer = () => {
   };
 
   useEffect(() => {
-    getVideos();
+    !videos && getVideos();
   }, []);
 
   // const handleInfiniteScroll = () => {

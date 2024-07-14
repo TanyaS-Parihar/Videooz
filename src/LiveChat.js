@@ -23,7 +23,7 @@ const LiveChat = () => {
       );
     }, 2000);
     console.log("hey");
-    clearInterval(i);
+
     return () => {
       clearInterval(i);
     };
@@ -48,10 +48,12 @@ const LiveChat = () => {
               })
             );
             setliveMessage(" ");
+
+            setTimeout(() => {}, 2000);
           }}
         >
           <input
-            className=" h-8 m-2 w-[10rem] absolute top-[41rem] right-[5rem] border-2 border-black"
+            className=" h-8 m-2 w-[10rem] absolute top-[43rem] right-[5rem] border-2 border-black"
             placeholder="comment"
             type="text"
             value={liveMessage}

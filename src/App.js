@@ -8,14 +8,15 @@ import { RouterProvider } from "react-router-dom";
 import MainContainer from "./MainContainer";
 import WatchPage from "./WatchPage";
 import QueryPage from "./QueryPage";
+import QueryCard from "./QueryCard";
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <Body />,
     children: [
       { path: "/", element: <MainContainer /> },
-      { path: "watch", element: <WatchPage /> },
-      { path: "search", element: <QueryPage /> },
+      { path: "/watch", element: <WatchPage /> },
+      { path: "search/:id", element: <QueryPage /> },
     ],
   },
 ]);

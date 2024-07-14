@@ -5,12 +5,13 @@ import { YOUTUBE_API } from "./utils/constants";
 import QueryPage from "./QueryPage";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import TestSearchBar from "./TestSearchBar";
 const MainContainer = () => {
   const queryResults = useSelector((store) => store?.query?.AddQueryResults);
 
   return (
-    <div className="absolute flex top-[15%] left-[14%]">
-      <div className="absolute -left-[8rem] -z-[10] top-6">
+    <div className="absolute flex top-[18%] left-[10%] ">
+      {/* <div className="absolute -left-[8rem] -z-[10] top-6  ">
         <div className="my-8 ">
           <img
             className="h-6"
@@ -35,12 +36,10 @@ const MainContainer = () => {
           />
           <h3>You</h3>
         </div>
-      </div>
+      </div> */}
       <div>
         <ButtonList />
         <VideoContainer />
-
-        {/* <QueryPage /> */}
       </div>
     </div>
   );

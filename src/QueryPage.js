@@ -11,7 +11,7 @@ const QueryPage = () => {
 
   const fetchFinalQueryResults = async () => {
     const data = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=AIzaSyAQEQKVZeXKZ0tSzpHlIrOhVVUOtwFGsjM`
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=AIzaSyAPy2lV1HoWtFaVAVcKGpUzaaaFkSSw-qQ`
     );
     const json = await data.json();
 
@@ -19,13 +19,15 @@ const QueryPage = () => {
   };
   useEffect(() => {
     fetchFinalQueryResults();
-  }, []);
+  }, [queryResults]);
 
   return (
     <div className="flex md:flex-row sm:flex-row flex-wrap ">
       {queryFinal &&
         queryFinal.map((video) => (
-          <VideoCard key={video.id.videoId} info={video} />
+          <Link to={"/watch?v=" + video.id}>
+            <VideoCard key={video.id.videoId} info={video} />
+          </Link>
         ))}
     </div>
   );

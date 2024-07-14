@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
   if (!isMenuOpen) return null;
+  // const home = lazy(()=>{ import("./home")})
   return (
     <div className="p-5 shadow-lg mt-14 bg-slate-50 ">
       <ul className=" font-medium">
         <Link to="/">
-          <li>Home</li>
+          <li onClick={() => {}}>Home</li>
         </Link>
         <li>Shorts</li>
-        <li>Vidoes</li>
+        <li>Videos</li>
         <li>Live</li>
       </ul>
       <h1 className="m-2 font-medium">Subscriptions</h1>
